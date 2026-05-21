@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Ember & Oak</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    /* Inner-page hero */
+    .page-hero {
+      background: linear-gradient(rgba(28,26,23,0.78), rgba(28,26,23,0.78)),
+                  url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80') center/cover no-repeat;
+      padding: 160px 0 80px;
+      text-align: center;
+      color: var(--cream);
+    }
+    .page-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; }
+    .page-hero p  { font-size: 1.05rem; color: rgba(250,245,236,0.75); max-width: 480px; margin: 16px auto 0; line-height: 1.7; }
+
+    /* FAQ accordion */
+    .accordion-button {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--charcoal);
+      background: var(--cream);
+    }
+    .accordion-button:not(.collapsed) {
+      color: var(--amber);
+      background: var(--warm-white);
+      box-shadow: none;
+    }
+    .accordion-button::after {
+      filter: none;
+    }
+    .accordion-button:focus { box-shadow: none; }
+    .accordion-body { font-size: 14px; color: var(--muted); line-height: 1.7; background: var(--warm-white); }
+    .accordion-item { border: 1px solid var(--border); border-radius: var(--radius) !important; overflow: hidden; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-logo">Ember <em>&</em> Oak</div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="mainNav" class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Ember <em>&</em> Oak</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navContent">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="nav-link btn-reserve-nav" href="contact.html">Reserve a Table</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="section-label" style="display:flex;justify-content:center;">Get In Touch</span>
+    <h1>Reserve Your Table</h1>
+    <p>We'd love to host you. Fill in the form below or call us directly.</p>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="container">
+
+      <div class="row g-4">
+
+        <!-- Info card -->
+        <div class="col-lg-4 reveal">
+          <div class="contact-info-card">
+            <h3>Visit Us</h3>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="contact-detail-text">
+                <strong>Address</strong>
+                <p>42 Orchard Street<br>Manhattan, New York<br>NY 10002, USA</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+              <div class="contact-detail-text">
+                <strong>Reservations</strong>
+                <p>+1 (212) 555-0182<br>reservations@emberoaknyc.com</p>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+              <div class="contact-detail-text">
+                <strong>Hours</strong>
+              </div>
+            </div>
+
+            <table class="hours-table">
+              <tr><td>Monday – Tuesday</td><td>Closed</td></tr>
+              <tr><td>Wednesday – Thursday</td><td>5:30 – 10pm</td></tr>
+              <tr><td>Friday – Saturday</td><td>5:00 – 11pm</td></tr>
+              <tr><td>Sunday</td><td>5:00 – 9pm</td></tr>
+              <tr><td>Brunch (Sat–Sun)</td><td>11am – 2pm</td></tr>
+            </table>
+
+            <!-- Social links in contact card -->
+            <div class="mt-4">
+              <div class="footer-heading" style="color:var(--amber-light);margin-bottom:12px;">Follow Along</div>
+              <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-yelp"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reservation form -->
+        <div class="col-lg-8 reveal">
+          <div class="contact-form-wrap">
+            <h3 class="mb-4" style="font-family:var(--font-serif);font-size:1.6rem;">Make a Reservation</h3>
+
+            <form id="reservationForm">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label class="form-label">First Name</label>
+                  <input type="text" class="form-control" placeholder="John" required/>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label">Last Name</label>
+                  <input type="text" class="form-control" placeholder="Smith" required/>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-control" placeholder="john@email.com" required/>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" placeholder="+1 (212) 555-0000"/>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label">Date</label>
+                  <input type="date" class="form-control" required/>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label">Time</label>
+                  <select class="form-select">
+                    <option disabled selected>Select a time</option>
+                    <option>5:30 PM</option>
+                    <option>6:00 PM</option>
+                    <option>6:30 PM</option>
+                    <option>7:00 PM</option>
+                    <option>7:30 PM</option>
+                    <option>8:00 PM</option>
+                    <option>8:30 PM</option>
+                    <option>9:00 PM</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label">Party Size</label>
+                  <select class="form-select">
+                    <option disabled selected>Guests</option>
+                    <option>1 Guest</option>
+                    <option>2 Guests</option>
+                    <option>3 Guests</option>
+                    <option>4 Guests</option>
+                    <option>5 Guests</option>
+                    <option>6+ Guests (call us)</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label">Occasion</label>
+                  <select class="form-select">
+                    <option disabled selected>Select (optional)</option>
+                    <option>Birthday</option>
+                    <option>Anniversary</option>
+                    <option>Business Dinner</option>
+                    <option>Date Night</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Special Requests</label>
+                  <textarea class="form-control" rows="3" placeholder="Dietary restrictions, seating preferences, allergies…"></textarea>
+                </div>
+                <div class="col-12 mt-2">
+                  <button type="submit" class="btn-primary-custom w-100" style="text-align:center;cursor:pointer;">
+                    <i class="fas fa-calendar-check me-2"></i> Confirm Reservation
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Google Map -->
+          <div class="map-wrap mt-4">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.6536!2d-73.9888!3d40.7157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sLower%20East%20Side%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1620000000000"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Restaurant location">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section style="background:var(--cream)">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="section-label">FAQs</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 reveal">
+          <div class="accordion" id="faqAccordion">
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  How far in advance should I book?
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We recommend booking at least 2–3 weeks in advance for weekday dining, and 4–6 weeks for Friday and Saturday evenings. For special occasions or the Chef's Table, please reach out 6–8 weeks ahead.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  Do you accommodate dietary restrictions?
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Absolutely. Please note any dietary restrictions or allergies in the Special Requests field when booking, and our kitchen will craft alternatives for every course. We accommodate vegan, vegetarian, gluten-free, and most allergen needs.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  What is your dress code?
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  We ask guests to dress smart-casual or formal. We love seeing people who have dressed for the occasion — it's part of the experience. Athletic wear and flip-flops are kindly not permitted.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  Is parking available nearby?
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Several parking garages are within a 3-minute walk on Delancey and Essex Streets. We are also steps from the Delancey St–Essex St subway station (F, M, J, Z lines). Valet parking is available on Friday and Saturday evenings.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                  Do you offer private dining?
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Yes — our private dining room seats up to 16 guests and can be reserved for corporate events, milestone celebrations, and intimate gatherings. Please email us at events@emberoaknyc.com for availability and custom menus.
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /accordion -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-logo">Ember <em>&</em> Oak</div>
+          <p class="footer-tagline">A seasonal table celebrating open-flame cooking in the heart of Manhattan.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-yelp"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <div class="footer-heading">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <div class="footer-heading">Experience</div>
+          <ul class="footer-links">
+            <li><a href="#">Private Dining</a></li>
+            <li><a href="#">Chef's Table</a></li>
+            <li><a href="#">Wine Cellar</a></li>
+            <li><a href="#">Gift Cards</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <div class="footer-heading">Stay in the Loop</div>
+          <p style="font-size:13px;line-height:1.7;margin-bottom:4px;">Seasonal menus, events & exclusive offers straight to your inbox.</p>
+          <div class="newsletter-row">
+            <input type="email" placeholder="your@email.com"/>
+            <button type="button"><i class="fas fa-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-divider"/>
+      <div class="footer-bottom">
+        <span>© 2024 Ember & Oak. All rights reserved.</span>
+        <span><a href="#" style="color:inherit;text-decoration:none;margin-right:16px;">Privacy Policy</a><a href="#" style="color:inherit;text-decoration:none;">Terms of Service</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="scrollTop"><i class="fas fa-chevron-up"></i></button>
+  <div id="formToast">
+    <i class="fas fa-check-circle" style="color:var(--amber-light)"></i>
+    Reservation request received! We'll confirm by email.
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
