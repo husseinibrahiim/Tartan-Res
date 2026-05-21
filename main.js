@@ -1,6 +1,6 @@
 /* ============================================================
-   EMBER & OAK — Main JavaScript
-   Author: Ember & Oak Dev Team
+   VIVA COFFEE — Main JavaScript
+   Author: Viva Coffee Dev Team
    Description: All interactive behaviour for the website:
      - Page loader
      - Navbar scroll effect & active link tracking
